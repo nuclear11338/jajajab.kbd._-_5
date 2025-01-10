@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .movie {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .movie img {
+            width: 100px;
+            height: 150px;
+            margin-right: 20px;
+        }
+        .movie h2 {
+            margin: 0;
+        }
+        .movie a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .movie a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎥 Movie Library</h1>
+        <p>Browse movies, play them online, or download them for offline viewing.</p>
+        <hr>
+        <div>
+            {% for movie in movies %}
+            <div class="movie">
+                <img src="{{ movie.poster }}" alt="{{ movie.title }}">
+                <div>
+                    <h2>{{ movie.title }}</h2>
+                    <a href="{{ movie.url }}" target="_blank">▶️ Play</a>
+                    <a href="{{ movie.url }}" download>⬇️ Download</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
